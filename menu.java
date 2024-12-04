@@ -27,6 +27,7 @@ public class Menu {
             System.out.println("9. Sair");
 
             try {
+                System.out.println("Escolha");
                 option = scanner.nextInt();
             } catch (Exception e) {
                 System.out.println("Opção Inválida.");
@@ -35,7 +36,7 @@ public class Menu {
             }
 
             switch (option) {
-                case 1:
+                case 1: {
                     try (Connection con = DriverManager.getConnection(url, user, password);
                         Statement stm = con.createStatement()) {
                             System.out.println("Digite o ID do Evento:");
@@ -58,9 +59,10 @@ public class Menu {
                     } catch (SQLException e) {
                         System.out.println("Erro ao cadastrar evento: " + e.getMessage());
                     }
-                    break;
 
-                case 2:
+                    break;
+                } 
+                case 2:{
                     try (Connection con = DriverManager.getConnection(url, user, password);
                         Statement stm = con.createStatement()) {
                             System.out.println("Digite a descrição do local:");
@@ -76,9 +78,10 @@ public class Menu {
                     } catch (SQLException e) {
                         System.out.println("Erro ao cadastrar local: " + e.getMessage());
                     }
-                    break;
 
-                case 3:
+                    break;
+                }
+                case 3: {
                     try (Connection con = DriverManager.getConnection(url, user, password);
                         Statement stm = con.createStatement()) {
                             System.out.println("Digite o e-mail do organizador:");
@@ -92,9 +95,10 @@ public class Menu {
                     } catch (SQLException e) {
                         System.out.println("Erro ao cadastrar organizador: " + e.getMessage());
                     }
-                    break;
 
-                case 4:
+                    break;
+                }
+                case 4: {
                     try (Connection con = DriverManager.getConnection(url, user, password);
                         Statement stm = con.createStatement()) {
                             System.out.println("Digite o telefone do participante:");
@@ -106,22 +110,24 @@ public class Menu {
                     } catch (SQLException e) {
                         System.out.println("Erro ao cadastrar participante: " + e.getMessage());
                     }
-                    break;
 
-                case 5:
+                    break;
+                }
+                case 5: {
                     try (Connection con = DriverManager.getConnection(url, user, password);
-                        Statement stm = con.createStatement();
-                        ResultSet rs = stm.executeQuery("SELECT * FROM Evento")) {
-                            System.out.println("Listagem dos eventos:");
-                            while (rs.next()) {
-                                System.out.println("ID: " + rs.getInt("id") + ", IdOrganizador: " + rs.getString("idOrganizador") + ", IdLocal: " + rs.getString("idLocal") + ", Data: " + rs.getString("data") + ", Descrição: " + rs.getString("descricao") + ", Participante: " + rs.getString("participante") + ", Vagas: " + rs.getInt("vagas"));
-                            }
+                    Statement stm = con.createStatement();
+                    ResultSet rs = stm.executeQuery("SELECT * FROM Evento")) {
+                        System.out.println("Listagem dos eventos:");
+                        while (rs.next()) {
+                            System.out.println("ID: " + rs.getInt("id") + ", IdOrganizador: " + rs.getString("idOrganizador") + ", IdLocal: " + rs.getString("idLocal") + ", Data: " + rs.getString("data") + ", Descrição: " + rs.getString("descricao") + ", Participante: " + rs.getString("participante") + ", Vagas: " + rs.getInt("vagas"));
+                        }
                     } catch (SQLException e) {
                         System.out.println("Erro ao l1istar eventos: " + e.getMessage());
                     }
-                    break;
 
-                case 6:
+                    break;
+                }
+                case 6: {
                     try (Connection con = DriverManager.getConnection(url, user, password);
                         Statement stm = con.createStatement();
                         ResultSet rs = stm.executeQuery("SELECT * FROM Local")) {
@@ -132,9 +138,10 @@ public class Menu {
                     } catch (SQLException e) {
                         System.out.println("Erro ao listar locais: " + e.getMessage());
                     }
-                    break;
 
-                case 7:
+                    break;
+                }
+                case 7: {
                     try (Connection con = DriverManager.getConnection(url, user, password);
                         Statement stm = con.createStatement();
                         ResultSet rs = stm.executeQuery("SELECT * FROM Organizador")) {
@@ -145,9 +152,10 @@ public class Menu {
                     } catch (SQLException e) {
                         System.out.println("Erro ao listar organizadores: " + e.getMessage());
                     }
-                    break;
 
-                case 8:
+                    break;
+                }
+                case 8: {
                     try (Connection con = DriverManager.getConnection(url, user, password);
                         Statement stm = con.createStatement();
                         ResultSet rs = stm.executeQuery("SELECT * FROM Participante")) {
@@ -158,12 +166,14 @@ public class Menu {
                     } catch (SQLException e) {
                         System.out.println("Erro ao listar participantes: " + e.getMessage());
                     }
-                    break;
 
-                case 9:
+                    break;
+                }
+                case 9: {
                     System.out.println("Saindo do sistema.");
-                    break;
 
+                    break;
+                }
                 default: {
                     System.out.println("Opção inválida, por favor tente novamente.");
                 }
