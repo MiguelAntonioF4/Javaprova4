@@ -161,7 +161,7 @@ public class Menu {
                     break;
 
                 case 9:
-                    System.out.println("Saindo do programa.");
+                    System.out.println("Saindo do sistema.");
                     break;
 
                 default: {
